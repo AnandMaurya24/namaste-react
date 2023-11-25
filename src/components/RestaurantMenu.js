@@ -3,26 +3,29 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestrauntMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import useRestaurantName from "../utils/useRestaurantName"
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const dummy = "Dummy Data";
 
-  const resInfo = useRestaurantMenu(resId);
+  //const resInfo = useRestaurantMenu(resId);
+
+  const resName =useRestaurantName(resId);
 
   const [showIndex, setShowIndex] = useState(null);
 
-  if (resInfo === null) return <Shimmer />;
-
+  if (resName === null ) return <Shimmer />;
+  
   const { name, cuisines, costForTwoMessage } =
-    resInfo?.cards[0]?.card?.card?.info;
-
+  resName?.cards[0]?.card?.card?.info;
+  //const {name}= resName?.cards[0]?.card?.card?.info;
   const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  resName?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  resName?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.["card"]?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"

@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import useOnlineOffline from "../utils/useOnlineOffline";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
 
-  const onlineStatus = useOnlineStatus();
+  const onlineStatus = useOnlineOffline();
 
   const { loggedInUser } = useContext(UserContext);
   //console.log(loggedInUser);

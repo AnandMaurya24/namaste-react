@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import useOnlineOffline from "../utils/useOnlineOffline";
 
 const Body = () => {
   // Local State Variable - Super powerful variable
@@ -26,17 +27,17 @@ const Body = () => {
     );
 
     const json = await data.json();
-
     // Optional Chaining
     setListOfRestraunt(
+      
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-
-  const onlineStatus = useOnlineStatus();
+  
+  const onlineStatus = useOnlineOffline();
 
   if (onlineStatus === false)
     return (
