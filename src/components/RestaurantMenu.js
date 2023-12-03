@@ -9,6 +9,7 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const dummy = "Dummy Data";
+  const clickCount=0;
 
   //const resInfo = useRestaurantMenu(resId);
 
@@ -44,6 +45,7 @@ const RestaurantMenu = () => {
         <RestaurantCategory
           key={category?.card?.card.title}
           data={category?.card?.card}
+          clickCount={clickCount}
           showItems={index === showIndex ? true : false}
           setShowIndex={() => setShowIndex(index)}
           dummy={dummy}

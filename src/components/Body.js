@@ -6,7 +6,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import useOnlineOffline from "../utils/useOnlineOffline";
 
-const Body = () => {
+const Body = () => { 
   // Local State Variable - Super powerful variable
   const [listOfRestaurants, setListOfRestraunt] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -57,7 +57,7 @@ const Body = () => {
           <input
             type="text"
             data-testid="searchInput"
-            className="border border-solid border-black"
+            className="border border-solid border-black bg-gray-50"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
@@ -108,7 +108,7 @@ const Body = () => {
             key={restaurant?.info.id}
             to={"/restaurants/" + restaurant?.info.id}
           >
-            {restaurant?.info.promoted ? (
+            {restaurant?.info.isOpen ? (
               <RestaurantCardPromoted resData={restaurant?.info} />
             ) : (
               <RestaurantCard resData={restaurant?.info} />
