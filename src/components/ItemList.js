@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { addItem,removeItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 
 const ItemList = ({ items, dummy }) => {
@@ -9,6 +9,9 @@ const ItemList = ({ items, dummy }) => {
     // Dispatch an action
     dispatch(addItem(item));
   };
+  const handleRemoveItem= (item) => {
+    dispatch(removeItem(item))
+  }
 
   return (
     <div>
@@ -38,6 +41,10 @@ const ItemList = ({ items, dummy }) => {
               >
                 Add +
               </button>
+              <button
+                className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
+                onClick={() => handleRemoveItem(item)}
+              >Remove -</button>
             </div>
             <img src={CDN_URL + item.card.info.imageId} className="w-full" />
           </div>

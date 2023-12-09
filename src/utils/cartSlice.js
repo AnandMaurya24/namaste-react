@@ -7,11 +7,13 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      // Redux Toolkit uses immer BTS
+      // Redux Toolkit uses immer BTSx
+      // if(state.items.contains())
       state.items.push(action.payload);
     },
     removeItem: (state, action) => {
-      state.items.pop();
+      state.items=state.items.filter(item=>
+        item?.card?.info?.id !== action.payload?.card?.info?.id);
     },
     //originalState = {items: ["pizza"]}
     clearCart: (state, action) => {
