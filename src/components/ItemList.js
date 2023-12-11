@@ -35,16 +35,18 @@ const ItemList = ({ items, dummy }) => {
           </div>
           <div className="w-3/12 p-4">
             <div className="absolute">
+            <button
+                className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
+                onClick={() => handleRemoveItem(item)}
+              > -
+              </button>
+              <span>Add</span>
               <button
                 className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
                 onClick={() => handleAddItem(item)}
-              >
-                Add +
-              </button>
-              <button
-                className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
-                onClick={() => handleRemoveItem(item)}
-              >Remove -</button>
+              >+</button>
+                
+             
             </div>
             <img src={CDN_URL + item.card.info.imageId} className="w-full" />
           </div>
