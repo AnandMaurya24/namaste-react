@@ -8,3 +8,9 @@ const appStore = configureStore({
 });
 
 export default appStore;
+
+
+//slice
+//appstore
+//provider 
+//calling reducer and subscribing to the

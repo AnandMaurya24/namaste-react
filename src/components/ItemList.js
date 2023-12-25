@@ -35,16 +35,16 @@ const ItemList = ({ items, dummy }) => {
           </div>
           <div className="w-3/12 p-4">
             <div className="absolute">
-            <button
+            {/* <button
                 className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
                 onClick={() => handleRemoveItem(item)}
               > -
-              </button>
-              <span>Add</span>
-              <button
+              </button> */}
+              {/* <span>Add</span> */}
+              <button data-testid="btnAdd"
                 className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
                 onClick={() => handleAddItem(item)}
-              >+</button>
+              > Add +</button>
                 
              
             </div>

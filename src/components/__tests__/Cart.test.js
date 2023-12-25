@@ -28,14 +28,15 @@ it("should Load Restaurant Menu Component", async () => {
     )
   );
 
-  const accordionHeader = screen.getByText("Biriyani (5)");
+  const accordionHeader = screen.getByText("VALUE SNACKERS (5)");
+  // console.log(accordionHeader);
   fireEvent.click(accordionHeader);
-
+  // console.log(screen.getAllByTestId("foodItems"));
   expect(screen.getAllByTestId("foodItems").length).toBe(5);
 
   expect(screen.getByText("Cart - (0 items)")).toBeInTheDocument();
 
-  const addBtns = screen.getAllByRole("button", { name: "Add +" });
+  const addBtns = screen.getAllByTestId("btnAdd", { name: "Add +" });
   fireEvent.click(addBtns[0]);
 
   expect(screen.getByText("Cart - (1 items)")).toBeInTheDocument();
